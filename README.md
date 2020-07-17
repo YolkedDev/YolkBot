@@ -27,6 +27,11 @@ If you're using a linter or autoformatter, please use `autopep8`. If you're usin
 ```
 
 ## Quick Start Guide
-This set of instructions should have the project up and running on any machine. You'll need **Python 3.8 or higher**.
+This set of commands that should have the project up and running on any machine, for either contribution or self-hosting. You'll need **Python 3.8 or higher**.
+```
+git clone https://github.com/YolkedDev/YolkBot.git
+pip install -U -r requirements.txt
+```
+You will need to make a \_keys.json file to self host the bot to your own token.
 
-[TODO]
+[maynotbecompletestill]
