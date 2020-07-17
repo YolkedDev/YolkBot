@@ -10,6 +10,8 @@ If you want to contribute to YolkBot you can just submit a pull request. Extreme
 - Classes and functions should have comments describing their purpose at the beginning of the declaration.
 - Use inline comments sparingly.
 - When refering to the YolkBot instance, use `bot` instead of `client`.
+- Use f-strings for formatting strings. Double quotes are prefered.
+- For the purposes of the help command, please give all commands a `description`. A `brief` should also be used to indicate command call requirements.
 
 If you're using a linter or autoformatter, please use `autopep8`. If you're using VSCode, you can find an example config below:
 ```json
