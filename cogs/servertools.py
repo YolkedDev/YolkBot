@@ -1,12 +1,11 @@
 from datetime import datetime as dt
 import db_interface
 from discord.ext import commands
-from main import YolkBot
 import other.custom_checks as checks
 
 
 class ServerTools(commands.Cog):
-    def __init__(self, bot: YolkBot):
+    def __init__(self, bot):
         self.bot = bot
 
 

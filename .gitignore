@@ -4,3 +4,4 @@
 *.iml
 _keys.json
 log.txt
+*.db

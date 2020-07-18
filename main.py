@@ -1,6 +1,5 @@
 import aiohttp
 import aiosqlite
-import asyncio
 from datetime import datetime as dt
 import db_interface
 from discord.ext import commands
@@ -14,22 +13,15 @@ class YolkBot(commands.Bot):
         super().__init__(command_prefix=self.get_prefix,
                          case_insensitive=True)
         self.start_time = dt.now()
-        self.web, self.db = asyncio.run(self.async_setup())
         self.first_on_ready = True
-        self.log_ch = None
+        self.db = None
         self.team = None
+        self.web = None
+        self.modlog_id = 555065838093336600     # change me when testing. We don't want test spam here!
 
         for ext in os.listdir("cogs"):
             if ext.endswith(".py"):
                 self.load_extension(f"cogs.{ext[:-3]}")
-
-
-    @staticmethod
-    async def async_setup():
-        web = aiohttp.ClientSession()
-        db = await aiosqlite.connect("db/bot.db")
-
-        return web, db
 
 
     async def get_prefix(self, message):
@@ -52,8 +44,11 @@ class YolkBot(commands.Bot):
               f"\tdt:\t\t{dt.now()}\n\n")
 
         if self.first_on_ready:
-            self.log_ch = self.get_channel(555065838093336600)
-            await self.log_ch.send("bot started")
+            log_ch = self.get_channel(self.modlog_id)
+            await log_ch.send("bot started")
+
+            self.web = aiohttp.ClientSession()
+            self.db = await aiosqlite.connect("db/bot.db")
 
             team_obj = (await self.application_info()).team
             team = {
