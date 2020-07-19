@@ -16,7 +16,7 @@ class CogManagement(commands.Cog):
 
         await ctx.message.add_reaction("\U00002705")
         log_ch = self.bot.get_channel(self.bot.modlog_id)
-        await log_ch.send(f"{ctx.author} reloaded a cog (`{cog_name}`)")
+        await log_ch.send(f"{ctx.author} loaded a cog (`{cog_name}`)")
 
 
     @commands.command()
@@ -40,7 +40,7 @@ class CogManagement(commands.Cog):
 
         await ctx.message.add_reaction("\U00002705")
         log_ch = self.bot.get_channel(self.bot.modlog_id)
-        await log_ch.send(f"{ctx.author} reloaded a cog (`{cog_name}`)")
+        await log_ch.send(f"{ctx.author} unloaded a cog (`{cog_name}`)")
 
 
 def setup(bot):
